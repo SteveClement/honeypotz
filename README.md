@@ -76,6 +76,8 @@ sudo apt-get install supervisor
 * Add [https://github.com/xluccianox/honeypotz/blob/master/kibana.conf this file] to /etc/supervisor/conf.d
 ```
 ln -s /etc/elasticsearch/ /usr/share/elasticsearch/config
+chown -R elasticsearch:elasticsearch /etc/usr/share/elasticsearch
+chown -R elasticsearch:elasticsearch /var/log/elasticsearch
 ```
 * Add [https://github.com/xluccianox/honeypotz/blob/master/elasticsearch.conf this file] to /etc/supervisor/conf.d
 Then:
