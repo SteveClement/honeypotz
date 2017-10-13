@@ -1,4 +1,21 @@
 # honeypotz
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [honeypotz](#)
+	- [Installing ELK Server](#)
+		- [Add GeoIP database to logstash](#)
+		- [Add cowrie logs configuration to logstash](#)
+	- [Deploying Cowrie Honeypot](#)
+		- [Changing ssh port](#)
+		- [Autorestart elasticsearch & kibana](#)
+		- [Docker](#)
+		- [Logging to ELK Server](#)
+			- [Copy the CA Cert from ELK Server to the Honeypot machine](#)
+			- [Installing & Configuring Filebeats](#)
+		- [Check connection to the ELK Server](#)
+		- [Check for cowrie logs in ELK Server](#)
+	- [References and guides used](#)
+    
 ## Installing ELK Server
 Just follow:
 * https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-ubuntu-14-04
@@ -10,7 +27,7 @@ sudo gunzip GeoLiteCity.dat.gz
 ```
 
 ### Add cowrie logs configuration to logstash
-Copy 11-cowrie-filter.conf to /etc/logstash/conf.d.
+Copy [11-cowrie-filter.conf https://github.com/xluccianox/honeypotz/blob/master/11-cowrie-filter.conf] to /etc/logstash/conf.d.
 Then run:
 ```
 sudo service logstash restart
@@ -51,12 +68,14 @@ Port 7890
 /etc/init.d/ssh restart
 ```
 Save and exit.
-### Autorestart kibana
-Due to memory limitations in the droplet (2 gb), kibana eventually crashes, you can set it to autorun using supervisor.
+### Autorestart elasticsearch & kibana
+Due to memory limitations in the droplet (2 gb), kibana or elasticsearch eventually crashes, you can set it to autorun using supervisor.
 ```
 sudo apt-get install supervisor
 ```
-Add this file to /etc/supervisor/conf.d, then:
+* Add [this file https://github.com/xluccianox/honeypotz/blob/master/kibana.conf] to /etc/supervisor/conf.d
+* Add [this file https://github.com/xluccianox/honeypotz/blob/master/elasticsearch.conf] to /etc/supervisor/conf.d
+Then:
 ```
 sudo service supervisor restart
 ```
