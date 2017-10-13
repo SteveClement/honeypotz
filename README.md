@@ -50,7 +50,6 @@ Create this directory structure in /.
 │   └── cowrie.cfg
 
 └── log
-
     └── tty
     
 Then:
@@ -74,10 +73,19 @@ Due to memory limitations in the droplet (2 gb), kibana or elasticsearch eventua
 sudo apt-get install supervisor
 ```
 * Add [this file https://github.com/xluccianox/honeypotz/blob/master/kibana.conf] to /etc/supervisor/conf.d
+```
+ln -s /etc/elasticsearch/ /usr/share/elasticsearch/config
+```
 * Add [this file https://github.com/xluccianox/honeypotz/blob/master/elasticsearch.conf] to /etc/supervisor/conf.d
 Then:
 ```
+supervisorctl reread
+supervisorctl update
 sudo service supervisor restart
+```
+To list service statusses:
+```
+supervisorctl status
 ```
 
 ### Docker
