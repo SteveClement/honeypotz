@@ -1,4 +1,5 @@
 # honeypotz
+![Kibana Dashboard](https://github.com/xluccianox/honeypotz/blob/master/kibana-dashboard.png)
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
 - [honeypotz](#)
@@ -27,7 +28,7 @@ sudo gunzip GeoLiteCity.dat.gz
 ```
 
 ### Add cowrie logs configuration to logstash
-Copy [11-cowrie-filter.conf https://github.com/xluccianox/honeypotz/blob/master/11-cowrie-filter.conf] to /etc/logstash/conf.d.
+Copy [https://github.com/xluccianox/honeypotz/blob/master/11-cowrie-filter.conf 11-cowrie-filter.conf] to /etc/logstash/conf.d.
 Then run:
 ```
 sudo service logstash restart
@@ -72,11 +73,11 @@ Due to memory limitations in the droplet (2 gb), kibana or elasticsearch eventua
 ```
 sudo apt-get install supervisor
 ```
-* Add [this file https://github.com/xluccianox/honeypotz/blob/master/kibana.conf] to /etc/supervisor/conf.d
+* Add [https://github.com/xluccianox/honeypotz/blob/master/kibana.conf this file] to /etc/supervisor/conf.d
 ```
 ln -s /etc/elasticsearch/ /usr/share/elasticsearch/config
 ```
-* Add [this file https://github.com/xluccianox/honeypotz/blob/master/elasticsearch.conf] to /etc/supervisor/conf.d
+* Add [https://github.com/xluccianox/honeypotz/blob/master/elasticsearch.conf this file] to /etc/supervisor/conf.d
 Then:
 ```
 supervisorctl reread
