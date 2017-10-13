@@ -2,9 +2,9 @@
 ![Kibana Dashboard](https://github.com/xluccianox/honeypotz/blob/master/kibana-dashboard.png)
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
-- [honeypotz](#)
-	- [Installing ELK Server](#)
-		- [Add GeoIP database to logstash](#)
+- [honeypotz]
+	- [Installing ELK Server](#installing-elk)
+		- [Add GeoIP database to logstash](#add-kibana-geopip)
 		- [Add cowrie logs configuration to logstash](#)
 	- [Deploying Cowrie Honeypot](#)
 		- [Changing ssh port](#)
@@ -17,10 +17,10 @@
 		- [Check for cowrie logs in ELK Server](#)
 	- [References and guides used](#)
     
-## Installing ELK Server
+## [Installing ELK Server](#installing-elk)
 Just follow:
 * https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-ubuntu-14-04
-### Add GeoIP database to logstash
+### [Add GeoIP database to logstash](#add-kibana-geopip)
 ```
 cd /etc/logstash
 sudo curl -O http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
