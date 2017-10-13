@@ -16,6 +16,33 @@ Then run:
 sudo service logstash restart
 ```
 ## Deploying Cowrie Honeypot
+* Download https://github.com/micheloosterhof/docker-cowrie/blob/master/Dockerfile.
+* In the Dockerfile location, run:
+```
+sudo apt-get install docker-io
+docker build -t cowrie .
+```
+Create this directory structure in /.
+/cowrie/
+├── docker-cowrie
+
+│   ├── Dockerfile
+
+├── etc
+
+│   └── cowrie.cfg
+
+└── log
+
+    └── tty
+    
+Then:
+
+```
+chown -R 999:1000 /cowrie/log 
+docker run -d -p 22:2222 -v /cowrie/etc/cowrie.cfg:/cowrie/cowrie-git/etc/cowrie.cfg -v /cowrie/log:/cowrie/cowrie-git/log cowrie
+```
+
 ### Changing ssh port
 ```
 sudo vi /etc/ssh/sshd_config
@@ -27,11 +54,11 @@ Save and exit.
 ### Autorestart kibana
 Due to memory limitations in the droplet (2 gb), kibana eventually crashes, you can set it to autorun using supervisor.
 ```
-apt-get install supervisor
+sudo apt-get install supervisor
 ```
 Add this file to /etc/supervisor/conf.d, then:
 ```
-service supervisor restart
+sudo service supervisor restart
 ```
 
 ### Docker
