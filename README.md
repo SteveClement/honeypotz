@@ -85,7 +85,9 @@ sudo service supervisor restart
 ```
 To list service statusses:
 ```
-supervisorctl status
+> sudo supervisorctl status
+elasticsearch                    RUNNING    pid 22811, uptime 0:00:01
+kibana                           RUNNING    pid 22812, uptime 0:00:01
 ```
 
 ### Docker
