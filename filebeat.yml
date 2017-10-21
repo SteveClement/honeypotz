@@ -1,0 +1,27 @@
+filebeat:
+  prospectors:
+    -
+      paths:
+        - /cowrie/log/cowrie.json*
+      encoding: plain
+      input_type: log
+      document_type: cowrie
+  registry_file: /var/lib/filebeat/registry
+output:
+  logstash:
+    hosts: ["104.131.74.146:5044"]
+    bulk_max_size: 1024
+
+    tls:
+      certificate_authorities: ["/etc/pki/tls/certs/logstash-forwarder.crt"]
+
+shipper:
+logging:
+  to_syslog: false
+  to_files: true
+  files:
+    path: /var/log/filebeat/
+    name: mybeat
+    rotateeverybytes: 10485760 # = 10MB
+    keepfiles: 7
+  level: info
