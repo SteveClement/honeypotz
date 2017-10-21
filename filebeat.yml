@@ -9,7 +9,7 @@ filebeat:
   registry_file: /var/lib/filebeat/registry
 output:
   logstash:
-    hosts: ["104.131.74.146:5044"]
+    hosts: ["ELK_SERVER_DNS_or_IP:5044"]
     bulk_max_size: 1024
 
     tls:
