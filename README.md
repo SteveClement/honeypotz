@@ -1,4 +1,5 @@
 # honeypotz
+![Some session playlog](https://github.com/xluccianox/honeypotz/blob/master/cowrie.gif)
 ![Kibana Dashboard](https://github.com/xluccianox/honeypotz/blob/master/kibana-dashboard.png)
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
